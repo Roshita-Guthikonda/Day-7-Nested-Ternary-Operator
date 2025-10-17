@@ -1,0 +1,99 @@
+Day 7: Nested Ternary Operator , JVM, JRE, JDK
+=================================================
+
+Nested Ternary Operator:
+-------------------------
+Syntax:
+-----------
+(condition)?exp1:((condition)?exp2:exp3);
+or
+(condition)?exp1:((condition)?exp2:(condition)?exp3:exp4);
+----------------------------------------------------------------
+Example Program:
+
+1)shop
+------
+purchaseamount>100->20% discount.
+purchaseamount>50 and 100->10% discount.
+purchseamount<50->0%.
+
+Program:
+--------------------------------------------------
+import java.util.Scanner;
+public class CalculateRemainingAmount{
+   public static void main(String[] args){
+       Scanner sc=new Scanner(System.in);
+       System.out.println("Enter purchase amount:");
+       double purchaseAmount = scanner.nextDouble();
+       double discount=(purchaseAmount>100)? 0.2 : (purchase>=50)? 0.1 : 0.0;
+       double discountAmount=purchaseAmount*discount;
+       double remainingAmount=purchaseAmount-discountAmount;
+       double percentDiscount=discount*100;
+       System.out.println("Amount after applying "+percentDiscount+ "%discount "+remainingAmount);
+       System.out.println("Discount applied : "+discountAmount);
+       sc.close();
+    }
+}
+
+
+2)Student Grade Evaluation
+------------------------------
+Write java program named StudentGrade that reads a student's marks(inter input) amd determines their grade using a nested ternary operator as per following conditions:
+
+Marks Range      Grade
+90 and above       A
+80-90              B
+70-79              C
+60-69              D
+50-59              E
+Below 50           F
+
+Program:
+------------------------------------------------
+
+import java.util.Scanner;
+
+public class StudentGrade {
+
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter student marks");
+		int marks=sc.nextInt();
+		char grade=(marks>=90)?'A':((marks>=80)?'B':(marks>=70)?'C':(marks>=60)?'D':(marks>=50)?'E':'F');
+		System.out.println("Student Grade is "+grade);
+		sc.close();
+	}
+
+}
+
+
+What are the differences between JVM, JRE, JDK
+----------------------------------------------------
+JVM(Java virtual machine)
+--------------------------
+->Responsible for executing java byte code.
+->Provide platform independence (WORA).
+->Performs JIT(Just-In-Time) compilation for faster execution.
+->Handles memory management and garbage collection.
+->Memory areas like heap, stack, method area, pc registers, native method stacks.
+
+JRE(Java run-time environment):- JVM+libraries set
+--------------------------------------------------------
+->Provides libraries, classes, and other files needed for running java programs.
+->Contains JVM+core libraries.
+->Doesn't include compiler or tools for development.
+
+JDK:- JVM+JRE+developer tools
+-----------------------------------------------
+->Includes everything in JRE, plus development tools 
+.javac(compiler)
+jar(archiver)
+Javadoc(documentation generator) 
+used by developers to create and compile and debug java application.
+
+You only want to run a java application ==> JRE
+You want to develop and run programs ==> JDK
+You want to explain or visualize execution ==> JVM
+
+
+
